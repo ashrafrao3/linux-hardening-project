@@ -105,6 +105,6 @@ installation into a production-ready, secure system.
 
 ## Author
 
-[Your Name]
+Muhammad Ashraf Rao
 Aspiring SOC Analyst | CompTIA Security+ Candidate
-[Your LinkedIn] | [Your Email]
+www.linkedin.com/in/ashraf-rao | ashrafrao3@gmail.com
