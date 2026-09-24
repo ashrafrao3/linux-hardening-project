@@ -1,0 +1,22 @@
+=== ROOT SSH DISABLED ===
+Date: 24 September 2026
+
+CHANGE MADE:
+- PermitRootLogin: no
+
+BACKUP: /etc/ssh/sshd_config.backup
+
+TESTS PERFORMED:
+1. sshd -t → config valid ✅
+2. SSH service restarted successfully ✅
+3. Root SSH login blocked ✅
+
+PROOF ROOT SSH IS DISABLED:
+Command: ssh root@localhost
+Result: Permission denied (publickey)
+
+WHY THIS MATTERS:
+- Root is the #1 target for attackers
+- Even if root's private key leaks, direct SSH won't work
+- Admins must use sudo from a non-root account (audit trail)
+- Defense in depth: even key compromise doesn't grant root directly

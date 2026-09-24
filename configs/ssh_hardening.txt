@@ -1,0 +1,25 @@
+=== SSH HARDENING: DISABLE PASSWORD AUTH ===
+Date: 24 September 2026
+
+CHANGES MADE:
+- PasswordAuthentication: no
+- PubkeyAuthentication: yes
+- ChallengeResponseAuthentication: no
+- UsePAM: yes
+
+BACKUP: /etc/ssh/sshd_config.backup
+
+TESTS PERFORMED:
+1. sshd -t → config valid ✅
+2. Key login works ✅ → ssh secadmin@localhost "whoami" → secadmin
+3. Password login blocked ✅ → Permission denied (publickey)
+
+PROOF PASSWORD AUTH IS DISABLED:
+Command: ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no secadmin@localhost
+Result: Permission denied (publickey)
+
+WHY THIS MATTERS:
+- Brute-force attacks no longer work
+- Passwords cannot be phished or leaked
+- Attack surface reduced to key-only access
+- Industry-standard hardening practice
