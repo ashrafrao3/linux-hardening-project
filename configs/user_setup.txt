@@ -1,0 +1,17 @@
+=== USER SETUP: secadmin ===
+Date: 23 September 2026
+
+USER: secadmin (UID 1002)
+GROUPS: secadmin, sudo, users
+SUDO: (ALL : ALL) ALL
+HOME: /home/secadmin (drwxr-x--- secadmin secadmin)
+
+PURPOSE:
+- Dedicated admin account separate from daily user (ashraf)
+- Separation of duties + least privilege
+
+COMMANDS:
+- sudo adduser secadmin
+- sudo usermod -aG sudo secadmin
+
+NEXT: SSH keys → disable password auth → disable root SSH

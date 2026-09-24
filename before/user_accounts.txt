@@ -1,0 +1,4 @@
+root:x:0:0:root:/root:/bin/bash
+sync:x:4:65534:sync:/bin:/bin/sync
+ashraf:x:1000:1000:,,,:/home/ashraf:/bin/bash
+testuser:x:1001:1001:testuser,0,0,0,0:/home/testuser:/bin/bash
