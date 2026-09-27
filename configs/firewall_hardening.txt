@@ -1,0 +1,18 @@
+Firewall Hardening - 27 Sep 2026
+
+Final state: Only SSH exposed (port 22, IPv4 + IPv6)
+
+Rules present:
+- 22/tcp ALLOW IN (IPv4)
+- 22/tcp (v6) ALLOW IN (IPv6)
+
+All other ports blocked by default policy:
+- Default deny incoming
+- Default allow outgoing
+
+Result: Minimal attack surface - only essential admin access.
+
+Why this matters:
+- Database ports (3306, 5432) are NOT exposed
+- Web ports (80, 443) are NOT exposed
+- Only SSH key-based auth is possible
