@@ -1,0 +1,20 @@
+#!/bin/bash
+echo "=== SECURITY CHECK ==="
+echo "Date: $(date)"
+echo ""
+echo "--- Failed Logins ---"
+sudo grep -a "Failed password" /var/log/auth.log 2>/dev/null | tail -5 || echo "None"
+echo ""
+echo "--- Successful Logins ---"
+sudo grep -a "Accepted" /var/log/auth.log 2>/dev/null | tail -5 || echo "None"
+echo ""
+echo "--- Open Ports ---"
+sudo ss -tuln | grep LISTEN
+echo ""
+echo "--- Firewall ---"
+sudo ufw status | head -3
+echo ""
+echo "--- fail2ban ---"
+sudo fail2ban-client status sshd 2>/dev/null | head -10 || echo "Not configured"
+echo ""
+echo "=== DONE ==="

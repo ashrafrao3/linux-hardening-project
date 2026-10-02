@@ -1,0 +1,22 @@
+Logging and Monitoring - 2 Oct 2026
+
+WHAT WAS DONE:
+1. Analyzed authentication logs (/var/log/auth.log)
+2. Installed fail2ban for intrusion prevention
+3. Created custom security audit script
+4. Verified fail2ban is watching SSH login attempts
+
+TOOLS INSTALLED:
+- fail2ban: automatically blocks IPs after repeated failed logins
+- security_check.sh: custom on-demand security audit script
+
+fail2ban CONFIGURATION:
+- Jail: sshd
+- Monitors: /var/log/auth.log
+- Default: 5 failed attempts = 10-minute ban
+- Status: active and enabled on boot
+
+SECURITY BENEFITS:
+- Brute-force attacks automatically mitigated
+- Attackers banned at firewall level
+- Full audit trail maintained
